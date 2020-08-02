@@ -41,6 +41,8 @@ class DatabaseManager {
                     // Create array of model
                     if let object = result as? MedicationHistory {
                         completion(object)
+                    }else{
+                        completion(nil)
                     }
                 }
                 catch {
