@@ -43,7 +43,14 @@ class NotificationManager {
         
         // Configure the recurring date.
         var dateComponents = DateComponents()
-        dateComponents.calendar = Calendar.current
+        
+        // to ignore current day notification
+        if addingDay > 0 {
+            dateComponents.calendar = Calendar.current
+            // need to fix here
+        }else{
+            dateComponents.calendar = Calendar.current
+        }
         
         if reminderType == .morning {
             content.body = "Hello this is a reminder you have to take morning medicine"
@@ -58,11 +65,6 @@ class NotificationManager {
         
         // Create the trigger as a repeating event.
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        
-        // to ignore current day notification
-        if addingDay > 0 {
-            
-        }
         
         // Create the request
         let request = UNNotificationRequest(identifier: reminderType.rawValue, content: content, trigger: trigger)
