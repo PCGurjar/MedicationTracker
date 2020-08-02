@@ -38,7 +38,7 @@ class NotificationManager {
     
     // Used to set the local notification
     func setMorningMedicineNotification(reminderType: MedicineReminder, addingDay: Int) {
-        var content = UNMutableNotificationContent()
+        let content = UNMutableNotificationContent()
         content.title = "Medicine Reminder"
         
         // Configure the recurring date.
